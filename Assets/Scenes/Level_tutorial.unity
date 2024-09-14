@@ -2249,31 +2249,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 559051879}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: ColorSelected
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: 
+      value: TutorialEndGameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 575550297}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -10832,31 +10832,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 559051879}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: ColorSelected
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: 
+      value: TutorialEndGameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1872347827}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

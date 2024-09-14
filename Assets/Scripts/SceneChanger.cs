@@ -13,11 +13,6 @@ public class SceneChanger : MonoBehaviour
     public Animator animator;
     private int levelToLoad;
 
-    void Update()
-    {
-
-    }
-
     public void FadeToLevel(int level)
     {
         levelToLoad = level;
