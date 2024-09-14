@@ -52,6 +52,11 @@ public class DocManager : MonoBehaviour
         fallDetector.transform.position = new Vector3(transform.position.x, fallDetector.transform.position.y, fallDetector.transform.position.z);
     }
 
+    public void BackToMenu()
+    {
+        sceneChanger.FadeToLevel(MenuConstants.Level_menu);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(DocConstants.FallDetectorTag))
@@ -79,7 +84,7 @@ public class DocManager : MonoBehaviour
         else if (collision.CompareTag(EndGameConstants.EndGameTag))
         {
             Debug.Log("End Game reached");
-            sceneChanger.FadeToLevel(MenuConstants.Level_menu);
+            BackToMenu();
         }
     }
 
