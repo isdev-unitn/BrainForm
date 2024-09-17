@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Gtec.UnityInterface;
-using UnityEngine.SceneManagement;
 
 static class DocConstants
 {
