@@ -25,6 +25,9 @@ TagManager:
   - ColorSequence
   - EndGame
   - Transition
+  - MenuManager
+  - MenuManagerProxy
+  - OutlineController
   layers:
   - Default
   - TransparentFX
