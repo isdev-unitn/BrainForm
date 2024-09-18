@@ -7,7 +7,7 @@ public class OutlineController : MonoBehaviour
         outline.SetActive(true);
     }
 
-    public void DectivateOutline([SerializeField] GameObject outline)
+    public void DeactivateOutline([SerializeField] GameObject outline)
     {
         outline.SetActive(false);
     }
