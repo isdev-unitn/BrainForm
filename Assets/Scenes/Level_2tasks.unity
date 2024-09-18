@@ -508,7 +508,8 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4473106099322677449, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5329160961504720057, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     - {fileID: 879802265132145679, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
@@ -9204,7 +9205,8 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4473106099322677449, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5329160961504720057, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     - {fileID: 879802265132145679, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
@@ -9443,7 +9445,8 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4473106099322677449, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5329160961504720057, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     - {fileID: 879802265132145679, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
@@ -10004,7 +10007,8 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4473106099322677449, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5329160961504720057, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     - {fileID: 879802265132145679, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
@@ -15567,7 +15571,8 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4473106099322677449, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5329160961504720057, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     - {fileID: 879802265132145679, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
@@ -18643,7 +18648,8 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4473106099322677449, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5329160961504720057, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     - {fileID: 879802265132145679, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
@@ -19032,7 +19038,8 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4473106099322677449, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5329160961504720057, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     - {fileID: 879802265132145679, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
@@ -21964,7 +21971,8 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4473106099322677449, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5329160961504720057, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     - {fileID: 879802265132145679, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
@@ -29709,7 +29717,8 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4473106099322677449, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5329160961504720057, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     - {fileID: 879802265132145679, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
@@ -30471,7 +30480,8 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.SpriteRenderer, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4473106099322677449, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5329160961504720057, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
     - {fileID: 879802265132145679, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
