@@ -40,7 +40,7 @@ namespace CortexBenchmark
             currentClassId = classId;
         }
 
-        public void BallHit(int cueId)
+        public void TargetHit(int cueId)
         {
             hitCounter++;
             _performanceCalculators.ForEach(p => p.AddCorrectlyClassified(cueId, currentClassId));
@@ -50,7 +50,7 @@ namespace CortexBenchmark
             }
         }
 
-        public void BallMissed(int cueId)
+        public void TargetMiss(int cueId)
         {
             hitCounter++;
             _performanceCalculators.ForEach(p => p.AddMissClassified(cueId, currentClassId));
