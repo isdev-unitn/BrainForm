@@ -24,6 +24,7 @@ public class EndGameManager : MonoBehaviour
     private List<Color> colors;
     private Transform colorSequence;
     private int currentColor;
+    private bool isActivated = false;
     private static Random rng = new Random();
 
     // Start is called before the first frame update
@@ -73,31 +74,39 @@ public class EndGameManager : MonoBehaviour
 
     public void ColorSelected([SerializeField] SpriteRenderer targetCenter)
     {
-        GameObject currentColorObject = colorSequence.GetChild(currentColor).gameObject;
-        FlashObject2D flashObject = targetCenter.GetComponentInParent<FlashObject2D>();
+        if (!isActivated)
+        {
+            isActivated = true;
+            GameObject currentColorObject = colorSequence.GetChild(currentColor).gameObject;
+            FlashObject2D flashObject = targetCenter.GetComponentInParent<FlashObject2D>();
 
-        if (currentColorObject.GetComponent<SpriteRenderer>().color == targetCenter.color)
-        {
-            currentColorObject.SetActive(false);
-            currentColor -= 1;
-            currentTaskController.TargetHit(flashObject.ClassId);
-            // condition to avoid playing the sound at the end of the sequence
-            if (currentColor >= 0)
+            if (currentColorObject.GetComponent<SpriteRenderer>().color == targetCenter.color)
             {
-                correctColorSound.Play();
+                currentColorObject.SetActive(false);
+                currentColor -= 1;
+                currentTaskController.TargetHit(flashObject.ClassId);
+                // condition to avoid playing the sound at the end of the sequence
+                if (currentColor >= 0)
+                {
+                    correctColorSound.Play();
+                }
+                else  // if all colors have been selected
+                {
+                    selectColorText.SetActive(false);
+                    ActivatePortal();
+                    successSound.Play();
+                }
             }
-            else  // if all colors have been selected
+            else if (currentColorObject.GetComponent<SpriteRenderer>().color != targetCenter.color)
             {
-                selectColorText.SetActive(false);
-                ActivatePortal();
-                successSound.Play();
+                currentTaskController.TargetMiss(flashObject.ClassId);
+                wrongColorSound.Play();
             }
-        }
-        else if (currentColorObject.GetComponent<SpriteRenderer>().color != targetCenter.color)
-        {
-            currentTaskController.TargetMiss(flashObject.ClassId);
-            wrongColorSound.Play();
         }
     }
 
+    public void ColorDeselected()
+    {
+        isActivated = false;
+    }
 }
