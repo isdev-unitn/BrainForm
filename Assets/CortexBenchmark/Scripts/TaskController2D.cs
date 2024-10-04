@@ -52,7 +52,7 @@ namespace CortexBenchmark
 
         public void TargetMiss(int cueId)
         {
-            hitCounter++;
+            //hitCounter++;
             _performanceCalculators.ForEach(p => p.AddMissClassified(cueId, currentClassId));
             if (!IsTaskRunning())
             {

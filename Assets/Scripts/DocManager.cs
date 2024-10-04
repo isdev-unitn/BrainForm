@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Gtec.UnityInterface;
+using CortexBenchmark;
 
 static class DocConstants
 {
@@ -21,6 +22,7 @@ public class DocManager : MonoBehaviour
     [SerializeField] private GameObject portalTargets;
     [SerializeField] private AudioSource deathSound;
     [SerializeField] private float bciTasksCameraDistance;
+    [SerializeField] private List<TaskController2D> taskControllers2D;
 
     private Vector3 respawnPoint;
     private CameraController mainCamera;
@@ -29,6 +31,7 @@ public class DocManager : MonoBehaviour
     private FlashController flashController;
     private SceneChanger sceneChanger;
     private Transform endGame;
+    private TaskController2D currentTaskController;
 
 
     private void Start()
@@ -71,11 +74,15 @@ public class DocManager : MonoBehaviour
         {
             Debug.Log("Activate BCI task 01");
             ActivateBciTask(enemiesTargets, 5);
+            currentTaskController = taskControllers2D[0];
+            currentTaskController.StartTaskTimer();
         }
         else if (collision.CompareTag(DocConstants.BciActivator02Tag))
         {
             Debug.Log("Activate BCI task 02");
             ActivateBciTask(portalTargets, 10);
+            currentTaskController = taskControllers2D[1];
+            currentTaskController.StartTaskTimer();
 
             // also activate the color sequence
             DeActivateColorSequence(true);

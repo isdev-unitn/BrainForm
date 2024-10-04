@@ -1,4 +1,7 @@
 using System.Collections;
+using System.Threading.Tasks;
+using CortexBenchmark;
+using Gtec.UnityInterface;
 using UnityEngine;
 
 
@@ -9,8 +12,16 @@ public class LaserController : MonoBehaviour
     [SerializeField] float activationTime;
     [SerializeField] private AudioSource laserSound;
     [SerializeField] private AudioSource explosionSound;
+    [SerializeField] private TaskController2D task;
 
     private bool isActivated = false;
+    private bool targetDestroyed = false;
+    private FlashObject2D parentFlashObject;
+
+    public void Start()
+    {
+        parentFlashObject = GetComponentInParent<FlashObject2D>();
+    }
 
     public void ActivateBeam()
     {
@@ -27,6 +38,10 @@ public class LaserController : MonoBehaviour
     {
         gameObject.SetActive(false);
         isActivated = false;
+        if (!targetDestroyed)
+        {
+            task.TargetMiss(parentFlashObject.ClassId);
+        }
     }
 
     private IEnumerator LaserTime(float seconds)
@@ -42,10 +57,12 @@ public class LaserController : MonoBehaviour
 
         if (targetEnemy && collider.name == targetEnemy.name)
         {
+            task.TargetHit(parentFlashObject.ClassId);
+            targetDestroyed = true;
             enemyPosition = targetEnemy.transform.position;
             Destroy(targetEnemy);
             explosion(enemyPosition);
-        }
+        } 
     }
 
     private void explosion(Vector3 enemyPosition)
