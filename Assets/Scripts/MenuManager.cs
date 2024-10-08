@@ -20,6 +20,7 @@ public class MenuManager : MonoBehaviour
     private GameObject trainingTarget;
     private GameObject bciSystem;
     private GameObject bciControllerMenu;
+    private SceneChanger sceneChanger;
     private bool mainMenuState;
     private bool bciControllerMenuState;
     private bool trainingTargetState;
@@ -44,6 +45,7 @@ public class MenuManager : MonoBehaviour
 
         // add listener for function between bci system and menu scene
         bciControllerMenu.transform.GetChild(1).gameObject.GetComponent<Button>().onClick.AddListener(OpenCloseBCIMenu);
+        bciControllerMenu.transform.GetChild(2).gameObject.GetComponent<Button>().onClick.AddListener(ReloadMenu);
     }
 
     void Start()
@@ -54,6 +56,8 @@ public class MenuManager : MonoBehaviour
         mainMenuState = mainMenu.activeInHierarchy;
         bciControllerMenuState = bciControllerMenu.activeInHierarchy;
         trainingTargetState = trainingTarget.activeInHierarchy;
+
+        sceneChanger = FindObjectOfType<SceneChanger>();
     }
 
     public void OpenCloseBCIMenu()
@@ -90,6 +94,13 @@ public class MenuManager : MonoBehaviour
 
         // add new targets to the flash controller
         bciSystem.transform.GetChild(1).gameObject.GetComponent<FlashController>().SetApplicationObjects(taskTargetElements);
+    }
+
+    private void ReloadMenu()
+    {
+        OpenCloseBCIMenu();
+        Destroy(bciSystem);
+        sceneChanger.FadeToLevel(MenuConstants.Level_menu);
     }
 
 }
