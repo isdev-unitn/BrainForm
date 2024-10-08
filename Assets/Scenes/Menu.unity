@@ -685,6 +685,10 @@ PrefabInstance:
       propertyPath: _simulateInput
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 997449729721641536, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
+      propertyPath: simulatedInputDuration
+      value: 2.04
+      objectReference: {fileID: 0}
     - target: {fileID: 1128352468926687023, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -1095,7 +1099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4909302811589106534, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
       propertyPath: SelectionThreshold
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4909302811589106534, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
       propertyPath: NumberOfTrainingTrials

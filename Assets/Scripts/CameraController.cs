@@ -34,7 +34,10 @@ public class CameraController : MonoBehaviour
         lookAhead = Mathf.Lerp(lookAhead, cameraMovement, speed * Time.deltaTime);
 
         // move the bci system with the player to keep the signal quality bars in place
-        bciSystem.transform.position = new Vector3(transform.position.x, bciSystem.transform.position.y, bciSystem.transform.position.z);
+        if (bciSystem != null)
+        {
+            bciSystem.transform.position = new Vector3(transform.position.x, bciSystem.transform.position.y, bciSystem.transform.position.z);
+        }
     }
 
 }
