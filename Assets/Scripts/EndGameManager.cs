@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using Random = System.Random;
+using CortexBenchmark;
+using Gtec.UnityInterface;
 
 static class EndGameConstants
 {
@@ -16,6 +19,7 @@ public class EndGameManager : MonoBehaviour
     [SerializeField] private AudioSource successSound;
     [SerializeField] private AudioSource correctColorSound;
     [SerializeField] private AudioSource wrongColorSound;
+    [SerializeField] private TaskController2D currentTaskController;
     private SpriteRenderer portalSpriteRenderer;
     private List<Color> colors;
     private Transform colorSequence;
@@ -75,11 +79,13 @@ public class EndGameManager : MonoBehaviour
         {
             isActive = true;
             GameObject currentColorObject = colorSequence.GetChild(currentColor).gameObject;
+            FlashObject2D flashObject = targetCenter.GetComponentInParent<FlashObject2D>();
 
             if (currentColorObject.GetComponent<SpriteRenderer>().color == targetCenter.color)
             {
                 currentColorObject.SetActive(false);
                 currentColor -= 1;
+                currentTaskController.TargetHit(flashObject.ClassId);
 
                 // condition to avoid playing the sound at the end of the sequence
                 if (currentColor >= 0)
@@ -96,14 +102,10 @@ public class EndGameManager : MonoBehaviour
             }
             else if (currentColorObject.GetComponent<SpriteRenderer>().color != targetCenter.color)
             {
+                currentTaskController.TargetMiss(flashObject.ClassId);
                 wrongColorSound.Play();
             }
         }
     }
-
-    public void DeactivateColorSelection()
-    {
-        isActive = false;
-    }
-
 }
+
