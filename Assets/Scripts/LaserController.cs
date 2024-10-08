@@ -10,13 +10,13 @@ public class LaserController : MonoBehaviour
     [SerializeField] private AudioSource laserSound;
     [SerializeField] private AudioSource explosionSound;
 
-    private bool isActivated = false;
+    private bool isActive = false;
 
     public void ActivateBeam()
     {
-        if(!isActivated)
+        if (!isActive)
         {
-            isActivated = true;        
+            isActive = true;
             laserSound.Play();
             gameObject.SetActive(true);
             StartCoroutine(LaserTime(activationTime));
@@ -26,7 +26,7 @@ public class LaserController : MonoBehaviour
     public void DectivateBeam()
     {
         gameObject.SetActive(false);
-        isActivated = false;
+        isActive = false;
     }
 
     private IEnumerator LaserTime(float seconds)

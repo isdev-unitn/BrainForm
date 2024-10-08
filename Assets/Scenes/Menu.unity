@@ -687,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 997449729721641536, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
       propertyPath: simulatedInputDuration
-      value: 2.16
+      value: 2.04
       objectReference: {fileID: 0}
     - target: {fileID: 1128352468926687023, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
       propertyPath: m_SortingOrder
@@ -1281,7 +1281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8128707533913871463, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
       propertyPath: Device
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8264541856139633007, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
       propertyPath: m_RootOrder
