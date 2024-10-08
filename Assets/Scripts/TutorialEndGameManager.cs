@@ -15,6 +15,8 @@ public class TutorialEndGameManager : MonoBehaviour
     private List<Color> colors;
     private Transform colorSequence;
     private int currentColor;
+    private bool isActive = false;
+    private bool portalOn = false;
     private static Random rng = new Random();
 
     // Start is called before the first frame update
@@ -56,29 +58,39 @@ public class TutorialEndGameManager : MonoBehaviour
 
     public void ColorSelected([SerializeField] SpriteRenderer targetCenter)
     {
-        GameObject currentColorObject = colorSequence.GetChild(currentColor).gameObject;
-
-        if (currentColorObject.GetComponent<SpriteRenderer>().color == targetCenter.color)
+        if (!isActive && !portalOn)
         {
-            currentColorObject.SetActive(false);
-            currentColor -= 1;
+            isActive = true;
+            GameObject currentColorObject = colorSequence.GetChild(currentColor).gameObject;
 
-            // condition to avoid playing the sound at the end of the sequence
-            if (currentColor >= 0)
+            if (currentColorObject.GetComponent<SpriteRenderer>().color == targetCenter.color)
             {
-                correctColorSound.Play();
+                currentColorObject.SetActive(false);
+                currentColor -= 1;
+
+                // condition to avoid playing the sound at the end of the sequence
+                if (currentColor >= 0)
+                {
+                    correctColorSound.Play();
+                }
+                else  // if all colors have been selected
+                {
+                    selectColorText.SetActive(false);
+                    ActivatePortal();
+                    successSound.Play();
+                    portalOn = true;
+                }
             }
-            else  // if all colors have been selected
+            else if (currentColorObject.GetComponent<SpriteRenderer>().color != targetCenter.color)
             {
-                selectColorText.SetActive(false);
-                ActivatePortal();
-                successSound.Play();
+                wrongColorSound.Play();
             }
         }
-        else if (currentColorObject.GetComponent<SpriteRenderer>().color != targetCenter.color)
-        {
-            wrongColorSound.Play();
-        }
+    }
+
+    public void DeactivateColorSelection()
+    {
+        isActive = false;
     }
 
 }
