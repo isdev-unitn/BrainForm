@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
 using Random = System.Random;
 using CortexBenchmark;
@@ -24,7 +23,7 @@ public class EndGameManager : MonoBehaviour
     private List<Color> colors;
     private Transform colorSequence;
     private int currentColor;
-    private bool isActivated = false;
+    private bool isActive = false;
     private bool portalOn = false;
     private static Random rng = new Random();
 
@@ -75,9 +74,9 @@ public class EndGameManager : MonoBehaviour
 
     public void ColorSelected([SerializeField] SpriteRenderer targetCenter)
     {
-        if (!isActivated && !portalOn)
+        if (!isActive && !portalOn)
         {
-            isActivated = true;
+            isActive = true;
             GameObject currentColorObject = colorSequence.GetChild(currentColor).gameObject;
             FlashObject2D flashObject = targetCenter.GetComponentInParent<FlashObject2D>();
 
@@ -86,6 +85,7 @@ public class EndGameManager : MonoBehaviour
                 currentColorObject.SetActive(false);
                 currentColor -= 1;
                 currentTaskController.TargetHit(flashObject.ClassId);
+
                 // condition to avoid playing the sound at the end of the sequence
                 if (currentColor >= 0)
                 {
@@ -109,6 +109,6 @@ public class EndGameManager : MonoBehaviour
 
     public void ColorDeselected()
     {
-        isActivated = false;
+        isActive = false;
     }
 }

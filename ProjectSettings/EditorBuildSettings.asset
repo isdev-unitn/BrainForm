@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_tutorial.unity
     guid: 21b0ff6f473612e49a22fd27927f70d6
   - enabled: 1
+    path: Assets/Scenes/Level_2tasks.unity
+    guid: eae22419db623514fb206408f3df137d
+  - enabled: 0
     path: Assets/Scenes/backup_Level_2tasks.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
