@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Gtec.UnityInterface;
+using CortexBenchmark;
 
 static class DocConstants
 {
@@ -21,6 +22,7 @@ public class DocManager : MonoBehaviour
     [SerializeField] private GameObject portalTargets;
     [SerializeField] private AudioSource deathSound;
     [SerializeField] private float bciTasksCameraDistance;
+    [SerializeField] private List<TaskController2D> taskControllers2D;
 
     private Vector3 respawnPoint;
     private CameraController mainCamera;
@@ -29,7 +31,9 @@ public class DocManager : MonoBehaviour
     private FlashController flashController;
     private SceneChanger sceneChanger;
     private Transform endGame;
-
+    private TaskController2D currentTaskController;
+    private bool task1Activated = false;
+    private bool task2Activated = false;
 
     private void Start()
     {
@@ -67,15 +71,21 @@ public class DocManager : MonoBehaviour
             Debug.Log("CheckPoint reached");
             SetRespawnPoint();
         }
-        else if (collision.CompareTag(DocConstants.BciActivator01Tag))
+        else if (collision.CompareTag(DocConstants.BciActivator01Tag) && !task1Activated)
         {
             Debug.Log("Activate BCI task 01");
+            task1Activated = true;
             ActivateBciTask(enemiesTargets, 5);
+            currentTaskController = taskControllers2D[0];
+            currentTaskController.StartTaskTimer();
         }
-        else if (collision.CompareTag(DocConstants.BciActivator02Tag))
+        else if (collision.CompareTag(DocConstants.BciActivator02Tag) && !task2Activated)
         {
             Debug.Log("Activate BCI task 02");
+            task2Activated = true;
             ActivateBciTask(portalTargets, 10);
+            currentTaskController = taskControllers2D[1];
+            currentTaskController.StartTaskTimer();
 
             // also activate the color sequence
             DeActivateColorSequence(true);
