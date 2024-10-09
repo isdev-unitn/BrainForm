@@ -105,6 +105,15 @@ public class DocManager : MonoBehaviour
     {
         if (collision.CompareTag(DocConstants.BciActivator01Tag))
         {
+            // turn off all laser to avoid having them always active if you leave the task with an active laser
+            foreach (Transform enemyTarget in enemiesTargets.transform)
+            {
+                if (enemyTarget.GetChild(3).gameObject.activeInHierarchy == true)
+                {
+                    enemyTarget.GetChild(3).GetComponent<LaserController>().DeactivateBeam();
+                }
+            }
+
             DeactivateBciTask(enemiesTargets);
         }
         else if (collision.CompareTag(DocConstants.BciActivator02Tag))
