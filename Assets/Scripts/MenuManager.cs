@@ -8,6 +8,7 @@ static class MenuConstants
 {
     public const int Level_menu = 0;
     public const string BciConfigurationTag = "BciConfiguration";
+    public const string BciControllerTag = "BciController";
     public const string BciSystemTag = "BciSystem";
     public const string FlashControllerTag = "FlashController";
     public const string TrainingTargetTag = "TrainingTarget";

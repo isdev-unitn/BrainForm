@@ -31,6 +31,7 @@ public class DocManager : MonoBehaviour
     private DocMovement docMovement;
     private float baseCameraDistance;
     private BCIConfiguration bciConfiguration;
+    private BCIController bciController;
     private FlashController flashController;
     private SceneChanger sceneChanger;
     private Transform endGame;
@@ -44,6 +45,7 @@ public class DocManager : MonoBehaviour
         SetRespawnPoint();
 
         bciConfiguration = GameObject.FindGameObjectWithTag(MenuConstants.BciConfigurationTag).GetComponent<BCIConfiguration>();
+        bciController = GameObject.FindGameObjectWithTag(MenuConstants.BciControllerTag).GetComponent<BCIController>();
         flashController = GameObject.FindGameObjectWithTag(MenuConstants.FlashControllerTag).GetComponent<FlashController>();
         sceneChanger = FindObjectOfType<SceneChanger>();
 
@@ -164,10 +166,16 @@ public class DocManager : MonoBehaviour
 
         // add new targets to the flash controller for the current task
         flashController.SetApplicationObjects(taskTargetElements);
+
+        // application on
+        bciController.OnBtnAppOnClicked();
     }
 
     private void DeactivateBciTask(GameObject taskTargets)
     {
+        // application off
+        bciController.OnBtnAppOffClicked();
+
         // reset camera distance and rotation to normal
         mainCamera.distance = baseCameraDistance;
         mainCamera.CanRotate = true;

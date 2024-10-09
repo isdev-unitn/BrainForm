@@ -28,6 +28,8 @@ TagManager:
   - MenuManager
   - MenuManagerProxy
   - OutlineController
+  - Task
+  - BciController
   layers:
   - Default
   - TransparentFX
