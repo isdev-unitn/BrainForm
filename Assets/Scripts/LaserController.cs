@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Threading.Tasks;
 using CortexBenchmark;
 using Gtec.UnityInterface;
 using UnityEngine;
@@ -16,11 +15,14 @@ public class LaserController : MonoBehaviour
 
     private bool isActive = false;
     private bool targetDestroyed = false;
+    private int enemyHitCount = 0;
     private FlashObject2D parentFlashObject;
+    private DocManager docManager;
 
     public void Start()
     {
         parentFlashObject = GetComponentInParent<FlashObject2D>();
+        docManager = GameObject.FindGameObjectWithTag(DocConstants.DocTag).GetComponent<DocManager>();
     }
 
     public void ActivateBeam()
@@ -50,7 +52,6 @@ public class LaserController : MonoBehaviour
         DeactivateBeam();
     }
 
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Vector3 enemyPosition;
@@ -62,6 +63,12 @@ public class LaserController : MonoBehaviour
             enemyPosition = targetEnemy.transform.position;
             Destroy(targetEnemy);
             explosion(enemyPosition);
+            enemyHitCount++;
+
+            if (enemyHitCount == GameObject.FindGameObjectsWithTag(DocConstants.EnemyTag).Length)
+            {
+                StartCoroutine(docManager.DisableBciTaskTrigger(DocConstants.BciActivator01Tag));
+            }
         }
     }
 
@@ -71,4 +78,6 @@ public class LaserController : MonoBehaviour
         enemyExplosion.Play();
         explosionSound.Play();
     }
+
+
 }

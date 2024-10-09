@@ -17,6 +17,7 @@ public class TutorialEndGameManager : MonoBehaviour
     private SpriteRenderer portalSpriteRenderer;
     private List<Color> colors;
     private Transform colorSequence;
+    private DocManager docManager;
     private int currentColor;
     private bool isActive = false;
     private bool portalOn = false;
@@ -25,6 +26,7 @@ public class TutorialEndGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        docManager = GameObject.FindGameObjectWithTag(DocConstants.DocTag).GetComponent<DocManager>();
         portalSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         // get gameobject containing the colors gameobjects sequence
@@ -84,6 +86,9 @@ public class TutorialEndGameManager : MonoBehaviour
                     ActivatePortal();
                     successSound.Play();
                     portalOn = true;
+
+                    // disable trigger for bci action (with a delay for ux purpose)
+                    StartCoroutine(docManager.DisableBciTaskTrigger(DocConstants.BciActivator02Tag));
                 }
             }
             else if (currentColorObject.GetComponent<SpriteRenderer>().color != targetCenter.color)
