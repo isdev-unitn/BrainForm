@@ -8,16 +8,22 @@ public class DocMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private AudioSource jumpSound, impactSound;
     private Rigidbody2D docBody;
-    private Animator animatior;
+    private Animator animator;
     private CapsuleCollider2D capsuleCollider;
     private bool facingRight = true;
     private float groundSpeed, airSpeed;
     private bool doImpact = false;
+    private bool canMove = true;
+    public bool CanMove
+    {
+        get { return canMove; }
+        set { canMove = value; }
+    }
 
     private void Awake()
     {
         docBody = GetComponent<Rigidbody2D>();
-        animatior = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
@@ -32,8 +38,16 @@ public class DocMovement : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 
         // moving the player left and right
-        docBody.velocity = new Vector3(horizontalInput * speed, docBody.velocity.y, 0);
-
+        if (canMove)
+        {
+            docBody.velocity = new Vector3(horizontalInput * speed, docBody.velocity.y, 0);
+            animator.SetBool("walk", horizontalInput != 0); // set parameters for walking animation
+        }
+        else
+        {
+            docBody.velocity = new Vector3(0, docBody.velocity.y, 0);
+            animator.SetBool("walk", false); // set parameters to stop walking animation
+        }
 
         // making the player sprite face left or right
         if ((horizontalInput > 0.01f && !facingRight) || (horizontalInput < -0.01f && facingRight))
@@ -41,9 +55,8 @@ public class DocMovement : MonoBehaviour
             flip();
         }
 
-        // set parameters for walking and jumping animation
-        animatior.SetBool("walk", horizontalInput != 0);
-        animatior.SetBool("grounded", isGrounded());
+        // set parameters for jumping animation
+        animator.SetBool("grounded", isGrounded());
 
         // jump
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && isGrounded())
@@ -74,7 +87,7 @@ public class DocMovement : MonoBehaviour
     private void jump()
     {
         jumpSound.Play();
-        animatior.SetTrigger("jump");
+        animator.SetTrigger("jump");
         docBody.velocity = Vector2.up * jumpStrenght;
     }
 

@@ -28,6 +28,7 @@ public class DocManager : MonoBehaviour
 
     private Vector3 respawnPoint;
     private CameraController mainCamera;
+    private DocMovement docMovement;
     private float baseCameraDistance;
     private BCIConfiguration bciConfiguration;
     private FlashController flashController;
@@ -38,6 +39,7 @@ public class DocManager : MonoBehaviour
     private void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag(DocConstants.MainCameraTag).GetComponent<CameraController>();
+        docMovement = gameObject.GetComponent<DocMovement>();
         baseCameraDistance = mainCamera.distance;
         SetRespawnPoint();
 
@@ -143,6 +145,7 @@ public class DocManager : MonoBehaviour
         // set camera distance an block rotation for a better field view during the bci task
         mainCamera.distance = bciTasksCameraDistance;
         mainCamera.CanRotate = false;
+        docMovement.CanMove = false;
 
         // activate task targets
         taskTargets.SetActive(true);
@@ -168,6 +171,7 @@ public class DocManager : MonoBehaviour
         // reset camera distance and rotation to normal
         mainCamera.distance = baseCameraDistance;
         mainCamera.CanRotate = true;
+        docMovement.CanMove = true;
 
         // deactivate task targets
         taskTargets.SetActive(false);

@@ -1330,6 +1330,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4909302811589106534, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
+      propertyPath: SaveDataCSV
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909302811589106534, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
       propertyPath: NumberOfClasses
       value: 10
       objectReference: {fileID: 0}
