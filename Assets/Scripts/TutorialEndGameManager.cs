@@ -99,7 +99,7 @@ public class TutorialEndGameManager : MonoBehaviour
         }
     }
 
-    public void DeactivateColorSelection()
+    public void ColorDeselected()
     {
         isActive = false;
     }
