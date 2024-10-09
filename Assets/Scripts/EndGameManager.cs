@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
 using Random = System.Random;
 using CortexBenchmark;
@@ -23,14 +22,16 @@ public class EndGameManager : MonoBehaviour
     private SpriteRenderer portalSpriteRenderer;
     private List<Color> colors;
     private Transform colorSequence;
+    private DocManager docManager;
     private int currentColor;
-    private bool isActivated = false;
+    private bool isActive = false;
     private bool portalOn = false;
     private static Random rng = new Random();
 
     // Start is called before the first frame update
     void Start()
     {
+        docManager = GameObject.FindGameObjectWithTag(DocConstants.DocTag).GetComponent<DocManager>();
         portalSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         // get gameobject containing the colors gameobjects sequence
@@ -75,9 +76,9 @@ public class EndGameManager : MonoBehaviour
 
     public void ColorSelected([SerializeField] SpriteRenderer targetCenter)
     {
-        if (!isActivated && !portalOn)
+        if (!isActive && !portalOn)
         {
-            isActivated = true;
+            isActive = true;
             GameObject currentColorObject = colorSequence.GetChild(currentColor).gameObject;
             FlashObject2D flashObject = targetCenter.GetComponentInParent<FlashObject2D>();
 
@@ -86,6 +87,7 @@ public class EndGameManager : MonoBehaviour
                 currentColorObject.SetActive(false);
                 currentColor -= 1;
                 currentTaskController.TargetHit(flashObject.ClassId);
+
                 // condition to avoid playing the sound at the end of the sequence
                 if (currentColor >= 0)
                 {
@@ -97,6 +99,9 @@ public class EndGameManager : MonoBehaviour
                     ActivatePortal();
                     successSound.Play();
                     portalOn = true;
+
+                    // disable trigger for bci action (with a delay for ux purpose)
+                    StartCoroutine(docManager.DisableBciTaskTrigger(DocConstants.BciActivator02Tag));
                 }
             }
             else if (currentColorObject.GetComponent<SpriteRenderer>().color != targetCenter.color)
@@ -109,6 +114,6 @@ public class EndGameManager : MonoBehaviour
 
     public void ColorDeselected()
     {
-        isActivated = false;
+        isActive = false;
     }
 }

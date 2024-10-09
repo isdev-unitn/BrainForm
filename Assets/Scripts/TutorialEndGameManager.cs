@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = System.Random;
+using CortexBenchmark;
+using Gtec.UnityInterface;
 
 
 public class TutorialEndGameManager : MonoBehaviour
@@ -11,9 +13,11 @@ public class TutorialEndGameManager : MonoBehaviour
     [SerializeField] private AudioSource successSound;
     [SerializeField] private AudioSource correctColorSound;
     [SerializeField] private AudioSource wrongColorSound;
+    [SerializeField] private TaskController2D currentTaskController;
     private SpriteRenderer portalSpriteRenderer;
     private List<Color> colors;
     private Transform colorSequence;
+    private DocManager docManager;
     private int currentColor;
     private bool isActive = false;
     private bool portalOn = false;
@@ -22,6 +26,7 @@ public class TutorialEndGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        docManager = GameObject.FindGameObjectWithTag(DocConstants.DocTag).GetComponent<DocManager>();
         portalSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         // get gameobject containing the colors gameobjects sequence
@@ -62,11 +67,13 @@ public class TutorialEndGameManager : MonoBehaviour
         {
             isActive = true;
             GameObject currentColorObject = colorSequence.GetChild(currentColor).gameObject;
+            FlashObject2D flashObject = targetCenter.GetComponentInParent<FlashObject2D>();
 
             if (currentColorObject.GetComponent<SpriteRenderer>().color == targetCenter.color)
             {
                 currentColorObject.SetActive(false);
                 currentColor -= 1;
+                currentTaskController.TargetHit(flashObject.ClassId);
 
                 // condition to avoid playing the sound at the end of the sequence
                 if (currentColor >= 0)
@@ -79,10 +86,14 @@ public class TutorialEndGameManager : MonoBehaviour
                     ActivatePortal();
                     successSound.Play();
                     portalOn = true;
+
+                    // disable trigger for bci action (with a delay for ux purpose)
+                    StartCoroutine(docManager.DisableBciTaskTrigger(DocConstants.BciActivator02Tag));
                 }
             }
             else if (currentColorObject.GetComponent<SpriteRenderer>().color != targetCenter.color)
             {
+                currentTaskController.TargetMiss(flashObject.ClassId);
                 wrongColorSound.Play();
             }
         }

@@ -2,16 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Gtec.UnityInterface;
 using CortexBenchmark;
+using System.Collections;
 
 static class DocConstants
 {
+    public const string DocTag = "Player";
     public const string FallDetectorTag = "FallDetector";
     public const string MainCameraTag = "MainCamera";
     public const string CheckPointTag = "CheckPoint";
     public const string BciActivator01Tag = "BciActivator_01";
     public const string BciActivator02Tag = "BciActivator_02";
-    public const string BciActivator03Tag = "BciActivator_03";
     public const string EnemyTag = "Enemy";
+    public const int EndTaskWaitTime = 1;
 }
 
 public class DocManager : MonoBehaviour
@@ -32,8 +34,6 @@ public class DocManager : MonoBehaviour
     private SceneChanger sceneChanger;
     private Transform endGame;
     private TaskController2D currentTaskController;
-    private bool task1Activated = false;
-    private bool task2Activated = false;
 
     private void Start()
     {
@@ -60,6 +60,12 @@ public class DocManager : MonoBehaviour
         sceneChanger.FadeToLevel(MenuConstants.Level_menu);
     }
 
+    public IEnumerator DisableBciTaskTrigger(string activator)
+    {
+        yield return new WaitForSeconds(DocConstants.EndTaskWaitTime);
+        GameObject.FindGameObjectWithTag(activator).GetComponent<BoxCollider2D>().enabled = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(DocConstants.FallDetectorTag))
@@ -71,18 +77,16 @@ public class DocManager : MonoBehaviour
             Debug.Log("CheckPoint reached");
             SetRespawnPoint();
         }
-        else if (collision.CompareTag(DocConstants.BciActivator01Tag) && !task1Activated)
+        else if (collision.CompareTag(DocConstants.BciActivator01Tag))
         {
             Debug.Log("Activate BCI task 01");
-            task1Activated = true;
             ActivateBciTask(enemiesTargets, 5);
             currentTaskController = taskControllers2D[0];
             currentTaskController.StartTaskTimer();
         }
-        else if (collision.CompareTag(DocConstants.BciActivator02Tag) && !task2Activated)
+        else if (collision.CompareTag(DocConstants.BciActivator02Tag))
         {
             Debug.Log("Activate BCI task 02");
-            task2Activated = true;
             ActivateBciTask(portalTargets, 10);
             currentTaskController = taskControllers2D[1];
             currentTaskController.StartTaskTimer();
@@ -101,6 +105,15 @@ public class DocManager : MonoBehaviour
     {
         if (collision.CompareTag(DocConstants.BciActivator01Tag))
         {
+            // turn off all laser to avoid having them always active if you leave the task with an active laser
+            foreach (Transform enemyTarget in enemiesTargets.transform)
+            {
+                if (enemyTarget.GetChild(3).gameObject.activeInHierarchy == true)
+                {
+                    enemyTarget.GetChild(3).GetComponent<LaserController>().DeactivateBeam();
+                }
+            }
+
             DeactivateBciTask(enemiesTargets);
         }
         else if (collision.CompareTag(DocConstants.BciActivator02Tag))
