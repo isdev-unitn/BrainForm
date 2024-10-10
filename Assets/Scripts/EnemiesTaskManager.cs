@@ -13,6 +13,15 @@ public class EnemiesTaskManager : MonoBehaviour
         enemiesNumber = GameObject.FindGameObjectsWithTag(DocConstants.EnemyTag).Length;
     }
 
+    void Update()
+    {
+        // if the player cannot move after the end of the task due to a bug, the task can be disabled pressing enter
+        if (Input.GetKey(KeyCode.Return))
+        {
+            StartCoroutine(docManager.DisableBciTaskTrigger(DocConstants.BciActivator01Tag));
+        }
+    }
+
     public void CheckIfTaskComplete()
     {
         enemiesNumber--;
