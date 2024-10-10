@@ -28,8 +28,10 @@ public class DocManager : MonoBehaviour
 
     private Vector3 respawnPoint;
     private CameraController mainCamera;
+    private DocMovement docMovement;
     private float baseCameraDistance;
     private BCIConfiguration bciConfiguration;
+    private BCIController bciController;
     private FlashController flashController;
     private SceneChanger sceneChanger;
     private Transform endGame;
@@ -38,10 +40,12 @@ public class DocManager : MonoBehaviour
     private void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag(DocConstants.MainCameraTag).GetComponent<CameraController>();
+        docMovement = gameObject.GetComponent<DocMovement>();
         baseCameraDistance = mainCamera.distance;
         SetRespawnPoint();
 
         bciConfiguration = GameObject.FindGameObjectWithTag(MenuConstants.BciConfigurationTag).GetComponent<BCIConfiguration>();
+        bciController = GameObject.FindGameObjectWithTag(MenuConstants.BciControllerTag).GetComponent<BCIController>();
         flashController = GameObject.FindGameObjectWithTag(MenuConstants.FlashControllerTag).GetComponent<FlashController>();
         sceneChanger = FindObjectOfType<SceneChanger>();
 
@@ -143,6 +147,7 @@ public class DocManager : MonoBehaviour
         // set camera distance an block rotation for a better field view during the bci task
         mainCamera.distance = bciTasksCameraDistance;
         mainCamera.CanRotate = false;
+        docMovement.CanMove = false;
 
         // activate task targets
         taskTargets.SetActive(true);
@@ -161,13 +166,20 @@ public class DocManager : MonoBehaviour
 
         // add new targets to the flash controller for the current task
         flashController.SetApplicationObjects(taskTargetElements);
+
+        // application on
+        bciController.OnBtnAppOnClicked();
     }
 
     private void DeactivateBciTask(GameObject taskTargets)
     {
+        // application off
+        bciController.OnBtnAppOffClicked();
+
         // reset camera distance and rotation to normal
         mainCamera.distance = baseCameraDistance;
         mainCamera.CanRotate = true;
+        docMovement.CanMove = true;
 
         // deactivate task targets
         taskTargets.SetActive(false);
