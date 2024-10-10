@@ -104,6 +104,12 @@ namespace CortexBenchmark
             }
         }
 
+        public void Flush()
+        {
+            _scoreWriter.Flush();
+            _experimentWriter.Flush();
+        }
+
         public void WritePerformanceScore(PerformanceMetrics.TaskScore score)
         {
             if (_scoreWriter != null)
@@ -117,7 +123,9 @@ namespace CortexBenchmark
                 score._itr.ToString("G3", CultureInfo.InvariantCulture) + "," +
                 score._accuracy.ToString("G3", CultureInfo.InvariantCulture) + "," +
                 score._elapsedTime.ToString("G3", CultureInfo.InvariantCulture));
+                _scoreWriter.Flush();
             }
+            
         }
 
         public void WriteTaskData(DateTime timestamp, int nClasses, int classId, int cue)
@@ -129,6 +137,7 @@ namespace CortexBenchmark
                 timestamp + "," +
                 classId + "," +
                 cue);
+                _experimentWriter.Flush();
             }
         }
 
