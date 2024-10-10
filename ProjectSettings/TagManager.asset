@@ -30,6 +30,7 @@ TagManager:
   - OutlineController
   - Task
   - BciController
+  - EnemiesTaskManager
   layers:
   - Default
   - TransparentFX

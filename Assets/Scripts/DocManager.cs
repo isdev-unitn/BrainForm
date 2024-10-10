@@ -13,6 +13,7 @@ static class DocConstants
     public const string BciActivator01Tag = "BciActivator_01";
     public const string BciActivator02Tag = "BciActivator_02";
     public const string EnemyTag = "Enemy";
+    public const string EnemiesTaskManagerTag = "EnemiesTaskManager";
     public const int EndTaskWaitTime = 1;
 }
 
