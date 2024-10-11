@@ -27,7 +27,7 @@ public class MenuManager : MonoBehaviour
     private bool trainingTargetState;
 
 
-    private void Awake()
+    void Awake()
     {
         // START avoid having duplicate objects due to dontdestroyonload
         if (GameObject.FindGameObjectsWithTag(MenuConstants.BciSystemTag).Length > 1)

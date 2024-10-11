@@ -38,7 +38,7 @@ public class DocManager : MonoBehaviour
     private Transform endGame;
     private TaskController2D currentTaskController;
 
-    private void Start()
+    void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag(DocConstants.MainCameraTag).GetComponent<CameraController>();
         docMovement = gameObject.GetComponent<DocMovement>();
@@ -54,7 +54,7 @@ public class DocManager : MonoBehaviour
         endGame = GameObject.FindGameObjectWithTag(EndGameConstants.EndGameTag).transform;
     }
 
-    private void Update()
+    void Update()
     {
         // moves the fall detector to keep it always under the player
         fallDetector.transform.position = new Vector3(transform.position.x, fallDetector.transform.position.y, fallDetector.transform.position.z);

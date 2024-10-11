@@ -20,20 +20,20 @@ public class DocMovement : MonoBehaviour
         set { canMove = value; }
     }
 
-    private void Awake()
+    void Awake()
     {
         docBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
-    private void Start()
+    void Start()
     {
         groundSpeed = speed;
         airSpeed = speed / 1.5f;
     }
 
-    private void Update()
+    void Update()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 

@@ -15,12 +15,12 @@ public class CameraController : MonoBehaviour
         set { canRotate = value; }
     }
 
-    private void Start()
+    void Start()
     {
         bciSystem = GameObject.FindGameObjectWithTag(MenuConstants.BciSystemTag);
     }
 
-    private void Update()
+    void Update()
     {
         transform.position = new Vector3(player.position.x + lookAhead, transform.position.y, transform.position.z);
         float cameraMovement = distance * player.localScale.x;

@@ -19,13 +19,13 @@ public class LaserController : MonoBehaviour
     private FlashObject2D parentFlashObject;
     private EnemiesTaskManager enemiesTaskManager;
 
-    public void Start()
+    void Start()
     {
         parentFlashObject = GetComponentInParent<FlashObject2D>();
         enemiesTaskManager = GameObject.FindGameObjectWithTag(DocConstants.EnemiesTaskManagerTag).GetComponent<EnemiesTaskManager>();
     }
 
-    public void ActivateBeam()
+    void ActivateBeam()
     {
         if (!isFiring)
         {

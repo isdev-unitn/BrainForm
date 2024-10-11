@@ -5,7 +5,6 @@ using Random = System.Random;
 using CortexBenchmark;
 using Gtec.UnityInterface;
 using System.Collections;
-using Unity.VisualScripting;
 
 static class EndGameConstants
 {
@@ -61,27 +60,9 @@ public class EndGameManager : MonoBehaviour
         CreatePortalColorSequence();
     }
 
-    public void Update()
+    void Update()
     {
         stopwatchTime = stopwatch.ElapsedMilliseconds;
-    }
-
-    private void ActivatePortal()
-    {
-        // change the sprite of the portal with the activated one
-        Debug.Log("Portal activated");
-        portalSpriteRenderer.sprite = portalOnSprite;
-    }
-
-    private void CreatePortalColorSequence()
-    {
-        // shuffle the colors list to get a random order
-        colors = colors.OrderBy(_ => rng.Next()).ToList();
-
-        for (int i = 0; i < colorSequence.childCount; i++)
-        {
-            colorSequence.GetChild(i).GetComponent<SpriteRenderer>().color = colors[i];
-        }
     }
 
     public void ColorSelected([SerializeField] SpriteRenderer targetCenter)
@@ -129,7 +110,7 @@ public class EndGameManager : MonoBehaviour
 
     }
 
-    public IEnumerator DeactivateInputLock(float seconds)
+    private IEnumerator DeactivateInputLock(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         stopwatch.Stop();
@@ -137,5 +118,23 @@ public class EndGameManager : MonoBehaviour
         Debug.Log("Couroutine execution time: " + stopwatchTime);
         stopwatch.Reset();
         isCoolingDown = false;
+    }
+
+    private void ActivatePortal()
+    {
+        // change the sprite of the portal with the activated one
+        Debug.Log("Portal activated");
+        portalSpriteRenderer.sprite = portalOnSprite;
+    }
+
+    private void CreatePortalColorSequence()
+    {
+        // shuffle the colors list to get a random order
+        colors = colors.OrderBy(_ => rng.Next()).ToList();
+
+        for (int i = 0; i < colorSequence.childCount; i++)
+        {
+            colorSequence.GetChild(i).GetComponent<SpriteRenderer>().color = colors[i];
+        }
     }
 }
