@@ -7584,6 +7584,7 @@ MonoBehaviour:
   currentTaskController: {fileID: 1679217356}
   cooldown: 0.5
   isCoolingDown: 0
+  stopwatchTime: 0
 --- !u!61 &559051878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18701,7 +18702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3307316636535771122, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3307316636535771122, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: m_WasSpriteAssigned

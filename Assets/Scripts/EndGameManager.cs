@@ -28,8 +28,7 @@ public class EndGameManager : MonoBehaviour
     private DocManager docManager;
     private int currentColor;
     public bool isCoolingDown = false;
-    //cooldown timer
-    public float stopwatchTime = 0;
+    public float stopwatchTime = 0; // cooldown timer
     private System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
     private bool portalOn = false;
     private static Random rng = new Random();
@@ -127,12 +126,11 @@ public class EndGameManager : MonoBehaviour
 
     public void ColorDeselected()
     {
-        
+
     }
 
     public IEnumerator DeactivateInputLock(float seconds)
     {
-
         yield return new WaitForSeconds(seconds);
         stopwatch.Stop();
 
