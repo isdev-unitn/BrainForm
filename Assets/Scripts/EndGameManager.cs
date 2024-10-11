@@ -4,6 +4,7 @@ using UnityEngine;
 using Random = System.Random;
 using CortexBenchmark;
 using Gtec.UnityInterface;
+using System.Collections;
 
 static class EndGameConstants
 {
@@ -19,6 +20,7 @@ public class EndGameManager : MonoBehaviour
     [SerializeField] private AudioSource correctColorSound;
     [SerializeField] private AudioSource wrongColorSound;
     [SerializeField] private TaskController2D currentTaskController;
+    [SerializeField] private float cooldown = 0.5f;
     private SpriteRenderer portalSpriteRenderer;
     private List<Color> colors;
     private Transform colorSequence;
@@ -114,6 +116,12 @@ public class EndGameManager : MonoBehaviour
 
     public void ColorDeselected()
     {
+        StartCoroutine(DeactivateInputLock(cooldown));
+    }
+
+    public IEnumerator DeactivateInputLock(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
         isActive = false;
     }
 }
