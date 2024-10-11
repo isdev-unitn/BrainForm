@@ -14,7 +14,7 @@ public class LaserController : MonoBehaviour
     [SerializeField] private AudioSource explosionSound;
     [SerializeField] private TaskController2D task;
 
-    private bool isActive = false;
+    private bool isFiring = false;
     private bool targetDestroyed = false;
     private FlashObject2D parentFlashObject;
     private EnemiesTaskManager enemiesTaskManager;
@@ -27,9 +27,9 @@ public class LaserController : MonoBehaviour
 
     public void ActivateBeam()
     {
-        if (!isActive)
+        if (!isFiring)
         {
-            isActive = true;
+            isFiring = true;
             laserSound.Play();
             gameObject.SetActive(true);
             StartCoroutine(LaserTime(activationTime));
@@ -39,7 +39,7 @@ public class LaserController : MonoBehaviour
     public void DeactivateBeam()
     {
         gameObject.SetActive(false);
-        isActive = false;
+        isFiring = false;
         if (!targetDestroyed)
         {
             task.TargetMiss(parentFlashObject.ClassId);

@@ -26,7 +26,7 @@ public class EndGameManager : MonoBehaviour
     private Transform colorSequence;
     private DocManager docManager;
     private int currentColor;
-    private bool isActive = false;
+    public bool isCoolingDown = false;
     private bool portalOn = false;
     private static Random rng = new Random();
 
@@ -78,9 +78,9 @@ public class EndGameManager : MonoBehaviour
 
     public void ColorSelected([SerializeField] SpriteRenderer targetCenter)
     {
-        if (!isActive && !portalOn)
+        if (!isCoolingDown && !portalOn)
         {
-            isActive = true;
+            isCoolingDown = true;
             GameObject currentColorObject = colorSequence.GetChild(currentColor).gameObject;
             FlashObject2D flashObject = targetCenter.GetComponentInParent<FlashObject2D>();
 
@@ -122,6 +122,6 @@ public class EndGameManager : MonoBehaviour
     public IEnumerator DeactivateInputLock(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        isActive = false;
+        isCoolingDown = false;
     }
 }
