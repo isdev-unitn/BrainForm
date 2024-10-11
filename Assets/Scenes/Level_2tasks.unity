@@ -930,6 +930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserTask
       objectReference: {fileID: 0}
+    - target: {fileID: 4524516560318010575, guid: cde8009ecd373fb47b1d6cbfed0e9154, type: 3}
+      propertyPath: _guiPosition.y
+      value: 190
+      objectReference: {fileID: 0}
     - target: {fileID: 6659237059371825214, guid: cde8009ecd373fb47b1d6cbfed0e9154, type: 3}
       propertyPath: nTrials
       value: 5
@@ -7578,6 +7582,8 @@ MonoBehaviour:
   correctColorSound: {fileID: 1682092814}
   wrongColorSound: {fileID: 1239355369}
   currentTaskController: {fileID: 1679217356}
+  cooldown: 0.5
+  isCoolingDown: 0
 --- !u!61 &559051878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15443,7 +15449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -740, y: 470}
+  m_AnchoredPosition: {x: -760, y: 400}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &958017053
@@ -25325,7 +25331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4524516560318010575, guid: cde8009ecd373fb47b1d6cbfed0e9154, type: 3}
       propertyPath: _guiPosition.y
-      value: 300
+      value: 330
       objectReference: {fileID: 0}
     - target: {fileID: 6659237059371825214, guid: cde8009ecd373fb47b1d6cbfed0e9154, type: 3}
       propertyPath: nTrials

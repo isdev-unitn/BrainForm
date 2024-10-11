@@ -1475,7 +1475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4524516560318010575, guid: cde8009ecd373fb47b1d6cbfed0e9154, type: 3}
       propertyPath: _guiPosition.y
-      value: 300
+      value: 330
       objectReference: {fileID: 0}
     - target: {fileID: 6659237059371825214, guid: cde8009ecd373fb47b1d6cbfed0e9154, type: 3}
       propertyPath: nTrials
@@ -2649,7 +2649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -740, y: 470}
+  m_AnchoredPosition: {x: -760, y: 400}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1003563838
@@ -17128,6 +17128,10 @@ PrefabInstance:
     - target: {fileID: 3568859508034429441, guid: cde8009ecd373fb47b1d6cbfed0e9154, type: 3}
       propertyPath: m_Name
       value: LaserTask
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524516560318010575, guid: cde8009ecd373fb47b1d6cbfed0e9154, type: 3}
+      propertyPath: _guiPosition.y
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 6659237059371825214, guid: cde8009ecd373fb47b1d6cbfed0e9154, type: 3}
       propertyPath: nTrials
