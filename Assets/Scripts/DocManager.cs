@@ -85,7 +85,7 @@ public class DocManager : MonoBehaviour
         else if (collision.CompareTag(DocConstants.BciActivator01Tag))
         {
             Debug.Log("Activate BCI task 01");
-            ActivateBciTask(enemiesTargets, 5);
+            ActivateBciTask(enemiesTargets, 10);
             currentTaskController = taskControllers2D[0];
             currentTaskController.StartTaskTimer();
         }

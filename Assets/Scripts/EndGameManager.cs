@@ -20,7 +20,7 @@ public class EndGameManager : MonoBehaviour
     [SerializeField] private AudioSource correctColorSound;
     [SerializeField] private AudioSource wrongColorSound;
     [SerializeField] private TaskController2D currentTaskController;
-    [SerializeField] private float cooldown = 0.5f;
+    [SerializeField] private float cooldown = 2f;
     private SpriteRenderer portalSpriteRenderer;
     private List<Color> colors;
     private Transform colorSequence;
