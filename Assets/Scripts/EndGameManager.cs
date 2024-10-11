@@ -5,6 +5,7 @@ using Random = System.Random;
 using CortexBenchmark;
 using Gtec.UnityInterface;
 using System.Collections;
+using Unity.VisualScripting;
 
 static class EndGameConstants
 {
@@ -27,6 +28,9 @@ public class EndGameManager : MonoBehaviour
     private DocManager docManager;
     private int currentColor;
     public bool isCoolingDown = false;
+    //cooldown timer
+    public float stopwatchTime = 0;
+    private System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
     private bool portalOn = false;
     private static Random rng = new Random();
 
@@ -58,6 +62,11 @@ public class EndGameManager : MonoBehaviour
         CreatePortalColorSequence();
     }
 
+    public void Update()
+    {
+        stopwatchTime = stopwatch.ElapsedMilliseconds;
+    }
+
     private void ActivatePortal()
     {
         // change the sprite of the portal with the activated one
@@ -81,6 +90,7 @@ public class EndGameManager : MonoBehaviour
         if (!isCoolingDown && !portalOn)
         {
             isCoolingDown = true;
+            stopwatch.Start();
             GameObject currentColorObject = colorSequence.GetChild(currentColor).gameObject;
             FlashObject2D flashObject = targetCenter.GetComponentInParent<FlashObject2D>();
 
@@ -111,17 +121,23 @@ public class EndGameManager : MonoBehaviour
                 currentTaskController.TargetMiss(flashObject.ClassId);
                 wrongColorSound.Play();
             }
+            StartCoroutine(DeactivateInputLock(cooldown));
         }
     }
 
     public void ColorDeselected()
     {
-        StartCoroutine(DeactivateInputLock(cooldown));
+        
     }
 
     public IEnumerator DeactivateInputLock(float seconds)
     {
+
         yield return new WaitForSeconds(seconds);
+        stopwatch.Stop();
+
+        Debug.Log("Couroutine execution time: " + stopwatchTime);
+        stopwatch.Reset();
         isCoolingDown = false;
     }
 }
