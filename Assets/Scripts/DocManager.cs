@@ -13,6 +13,7 @@ static class DocConstants
     public const string BciActivator01Tag = "BciActivator_01";
     public const string BciActivator02Tag = "BciActivator_02";
     public const string EnemyTag = "Enemy";
+    public const string RestTargetTag = "RestTarget";
     public const string EnemiesTaskManagerTag = "EnemiesTaskManager";
     public const int EndTaskWaitTime = 1;
 }
@@ -113,7 +114,7 @@ public class DocManager : MonoBehaviour
             // turn off all laser to avoid having them always active if you leave the task with an active laser
             foreach (Transform enemyTarget in enemiesTargets.transform)
             {
-                if (enemyTarget.GetChild(3).gameObject.activeInHierarchy == true)
+                if (enemyTarget.gameObject.tag != DocConstants.RestTargetTag && enemyTarget.GetChild(3).gameObject.activeInHierarchy == true)
                 {
                     enemyTarget.GetChild(3).GetComponent<LaserController>().DeactivateBeam();
                 }
@@ -158,10 +159,16 @@ public class DocManager : MonoBehaviour
 
         // START preparing task targets list 
         List<NeurofeedbackTarget> taskTargetElements = new List<NeurofeedbackTarget>();
+        GameObject taskTarget;
 
         for (int i = 0; i < taskTargets.transform.childCount; i++)
         {
-            taskTargetElements.Add(taskTargets.transform.GetChild(i).gameObject.GetComponent<NeurofeedbackTarget>());
+            taskTarget = taskTargets.transform.GetChild(i).gameObject;
+
+            if (taskTarget.tag != DocConstants.RestTargetTag)
+            {
+                taskTargetElements.Add(taskTarget.GetComponent<NeurofeedbackTarget>());
+            }
         }
         // END preparing task target list
 

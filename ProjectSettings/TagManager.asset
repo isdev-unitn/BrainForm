@@ -31,6 +31,7 @@ TagManager:
   - Task
   - BciController
   - EnemiesTaskManager
+  - RestTarget
   layers:
   - Default
   - TransparentFX
