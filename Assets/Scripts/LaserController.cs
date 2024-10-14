@@ -30,6 +30,7 @@ public class LaserController : MonoBehaviour
         if (!isFiring)
         {
             isFiring = true;
+            targetDestroyed = false;
             laserSound.Play();
             gameObject.SetActive(true);
             StartCoroutine(LaserTime(activationTime));
