@@ -8,6 +8,7 @@ Research and non-commercial use is allowed. Any commercial use must be agreed up
 ***/
 
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace CortexBenchmark
@@ -42,21 +43,19 @@ namespace CortexBenchmark
 
         public void TargetHit(int cueId)
         {
-            hitCounter++;
-            _performanceCalculators.ForEach(p => p.AddCorrectlyClassified(cueId, currentClassId));
-            if (!IsTaskRunning())
+            if(IsTaskRunning())
             {
-                StopTaskTimer();
+                hitCounter++;
+                _performanceCalculators.ForEach(p => p.AddCorrectlyClassified(cueId, currentClassId));
             }
         }
 
         public void TargetMiss(int cueId)
         {
-            //hitCounter++;
-            _performanceCalculators.ForEach(p => p.AddMissClassified(cueId, currentClassId));
-            if (!IsTaskRunning())
+            if(IsTaskRunning())
             {
-                StopTaskTimer();
+                //hitCounter++;
+                _performanceCalculators.ForEach(p => p.AddMissClassified(cueId, currentClassId));
             }
         }
 

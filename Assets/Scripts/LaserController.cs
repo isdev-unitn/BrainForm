@@ -4,7 +4,6 @@ using CortexBenchmark;
 using Gtec.UnityInterface;
 using UnityEngine;
 
-
 public class LaserController : MonoBehaviour
 {
     [SerializeField] GameObject targetEnemy;
@@ -15,7 +14,7 @@ public class LaserController : MonoBehaviour
     [SerializeField] private TaskController2D task;
 
     private bool isFiring = false;
-    private bool targetDestroyed = false;
+    private bool targetHit = false;
     private FlashObject2D parentFlashObject;
     private EnemiesTaskManager enemiesTaskManager;
 
@@ -30,7 +29,7 @@ public class LaserController : MonoBehaviour
         if (!isFiring)
         {
             isFiring = true;
-            targetDestroyed = false;
+            targetHit = false;
             laserSound.Play();
             gameObject.SetActive(true);
             StartCoroutine(LaserTime(activationTime));
@@ -41,7 +40,7 @@ public class LaserController : MonoBehaviour
     {
         gameObject.SetActive(false);
         isFiring = false;
-        if (!targetDestroyed)
+        if (!targetHit)
         {
             task.TargetMiss(parentFlashObject.ClassId);
         }
@@ -60,7 +59,7 @@ public class LaserController : MonoBehaviour
         if (targetEnemy && collider.name == targetEnemy.name)
         {
             task.TargetHit(parentFlashObject.ClassId);
-            targetDestroyed = true;
+            targetHit = true;
             enemyPosition = targetEnemy.transform.position;
             Destroy(targetEnemy);
             explosion(enemyPosition);
@@ -74,6 +73,4 @@ public class LaserController : MonoBehaviour
         enemyExplosion.Play();
         explosionSound.Play();
     }
-
-
 }

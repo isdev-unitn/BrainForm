@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using CortexBenchmark;
 using UnityEngine;
 
 public class EnemiesTaskManager : MonoBehaviour
 {
+    [SerializeField]
+    private TaskController2D taskController;
     private DocManager docManager;
     private int enemiesNumber;
 
@@ -28,6 +32,7 @@ public class EnemiesTaskManager : MonoBehaviour
 
         if (enemiesNumber == 0)
         {
+            taskController.StopTaskTimer();
             StartCoroutine(docManager.DisableBciTaskTrigger(DocConstants.BciActivator01Tag));
         }
     }
