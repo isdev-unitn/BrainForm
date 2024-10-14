@@ -12,7 +12,6 @@ public class LaserController : MonoBehaviour
     [SerializeField] private AudioSource laserSound;
     [SerializeField] private AudioSource explosionSound;
     [SerializeField] private TaskController2D task;
-
     private bool isFiring = false;
     private bool targetHit = false;
     private FlashObject2D parentFlashObject;

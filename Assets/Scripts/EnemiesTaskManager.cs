@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class EnemiesTaskManager : MonoBehaviour
 {
-    [SerializeField]
-    private TaskController2D taskController;
+    [SerializeField] private TaskController2D taskController;
     private DocManager docManager;
     private int enemiesNumber;
 

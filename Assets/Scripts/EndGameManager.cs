@@ -91,6 +91,7 @@ public class EndGameManager : MonoBehaviour
                     ActivatePortal();
                     successSound.Play();
                     portalOn = true;
+                    currentTaskController.StopTaskTimer();
 
                     // disable trigger for bci action (with a delay for ux purpose)
                     StartCoroutine(docManager.DisableBciTaskTrigger(DocConstants.BciActivator02Tag));
