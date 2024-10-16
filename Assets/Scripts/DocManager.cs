@@ -103,6 +103,7 @@ public class DocManager : MonoBehaviour
         else if (collision.CompareTag(EndGameConstants.EndGameTag))
         {
             Debug.Log("End Game reached");
+            docMovement.CanMove = false;
             BackToMenu();
         }
     }
