@@ -20,16 +20,13 @@ public class EndGameManager : MonoBehaviour
     [SerializeField] private AudioSource correctColorSound;
     [SerializeField] private AudioSource wrongColorSound;
     [SerializeField] private TaskController2D currentTaskController;
-    [SerializeField] private float cooldown = 2f;
     private SpriteRenderer portalSpriteRenderer;
     private List<Color> colors;
     private Transform colorSequence;
     private DocManager docManager;
     private int currentColor;
-    public bool isCoolingDown = false;
-    public float stopwatchTime = 0; // cooldown timer
-    private System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
     private bool portalOn = false;
+    private bool isActive = false;
     private static Random rng = new Random();
 
     // Start is called before the first frame update
@@ -60,17 +57,11 @@ public class EndGameManager : MonoBehaviour
         CreatePortalColorSequence();
     }
 
-    void Update()
-    {
-        stopwatchTime = stopwatch.ElapsedMilliseconds;
-    }
-
     public void ColorSelected([SerializeField] SpriteRenderer targetCenter)
     {
-        if (!isCoolingDown && !portalOn)
+        if (!isActive && !portalOn)
         {
-            isCoolingDown = true;
-            stopwatch.Start();
+            isActive = true;
             GameObject currentColorObject = colorSequence.GetChild(currentColor).gameObject;
             FlashObject2D flashObject = targetCenter.GetComponentInParent<FlashObject2D>();
 
@@ -93,7 +84,7 @@ public class EndGameManager : MonoBehaviour
                     portalOn = true;
                     currentTaskController.StopTaskTimer();
 
-                    // disable trigger for bci action (with a delay for ux purpose)
+                    // disable trigger for bci action with a delay for ux purpose
                     StartCoroutine(docManager.DisableBciTaskTrigger(DocConstants.BciActivator02Tag));
                 }
             }
@@ -102,23 +93,12 @@ public class EndGameManager : MonoBehaviour
                 currentTaskController.TargetMiss(flashObject.ClassId);
                 wrongColorSound.Play();
             }
-            StartCoroutine(DeactivateInputLock(cooldown));
         }
     }
 
     public void ColorDeselected()
     {
-
-    }
-
-    private IEnumerator DeactivateInputLock(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        stopwatch.Stop();
-
-        Debug.Log("Couroutine execution time: " + stopwatchTime);
-        stopwatch.Reset();
-        isCoolingDown = false;
+        isActive = false;
     }
 
     private void ActivatePortal()

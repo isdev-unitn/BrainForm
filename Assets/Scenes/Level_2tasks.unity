@@ -462,7 +462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _classId
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _darkSprite
@@ -1212,7 +1212,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
       propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 141299698}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DeactivateBeam
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LaserController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3651670061383925297, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
       propertyPath: m_LocalScale.x
@@ -1381,6 +1405,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1937935746164252716, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
   m_PrefabInstance: {fileID: 141299695}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &141299698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4621987792247963952, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+  m_PrefabInstance: {fileID: 141299695}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119c6a607ad493f48ac4263ce3d50f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &167551487
 GameObject:
   m_ObjectHideFlags: 0
@@ -7701,7 +7736,7 @@ MonoBehaviour:
   correctColorSound: {fileID: 1682092814}
   wrongColorSound: {fileID: 1239355369}
   currentTaskController: {fileID: 1679217356}
-  cooldown: 2
+  cooldown: 3
   isCoolingDown: 0
   stopwatchTime: 0
 --- !u!61 &559051878
@@ -7923,7 +7958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _classId
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _darkSprite
@@ -8191,7 +8226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _classId
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _darkSprite
@@ -8331,7 +8366,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
       propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 610110593}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DeactivateBeam
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LaserController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3651670061383925297, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
       propertyPath: m_LocalScale.x
@@ -8500,6 +8559,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1937935746164252716, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
   m_PrefabInstance: {fileID: 610110590}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &610110593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4621987792247963952, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+  m_PrefabInstance: {fileID: 610110590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119c6a607ad493f48ac4263ce3d50f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &614333939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14278,7 +14348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _classId
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _darkSprite
@@ -16383,7 +16453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _classId
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _darkSprite
@@ -16667,7 +16737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _classId
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _darkSprite
@@ -16875,7 +16945,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
       propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1135446676}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DeactivateBeam
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LaserController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3651670061383925297, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
       propertyPath: m_LocalScale.x
@@ -17044,6 +17138,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1937935746164252716, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
   m_PrefabInstance: {fileID: 1135446673}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1135446676 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4621987792247963952, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+  m_PrefabInstance: {fileID: 1135446673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119c6a607ad493f48ac4263ce3d50f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1135574418
 GameObject:
   m_ObjectHideFlags: 0
@@ -17597,7 +17702,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8c2f8f01af3736c468647920c19dc572, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -19114,7 +19219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _classId
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _darkSprite
@@ -25385,7 +25490,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
       propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1638076711}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DeactivateBeam
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LaserController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3651670061383925297, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
       propertyPath: m_LocalScale.x
@@ -25554,6 +25683,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1937935746164252716, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
   m_PrefabInstance: {fileID: 1638076708}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1638076711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4621987792247963952, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+  m_PrefabInstance: {fileID: 1638076708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119c6a607ad493f48ac4263ce3d50f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1679217355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26212,7 +26352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _classId
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _darkSprite
@@ -26855,7 +26995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _classId
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8787307678603593205, guid: eb7b63cb7604e884897c7ace1a02e5bc, type: 3}
       propertyPath: _darkSprite
@@ -39137,11 +39277,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
       propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1976017911077264207}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
       propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DeactivateBeam
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LaserController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987092365891282940, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4621987792247963952, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
       propertyPath: task
@@ -39224,6 +39384,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+--- !u!114 &1976017911077264207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4621987792247963952, guid: f70862ca9ba68a04c8822554b36135df, type: 3}
+  m_PrefabInstance: {fileID: 1976017911077264206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119c6a607ad493f48ac4263ce3d50f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

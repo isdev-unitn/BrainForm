@@ -43,24 +43,6 @@ public class TutorialEndGameManager : MonoBehaviour
         CreatePortalColorSequence();
     }
 
-    private void ActivatePortal()
-    {
-        // change the sprite of the portal with the activated one
-        Debug.Log("Portal activated");
-        portalSpriteRenderer.sprite = portalOnSprite;
-    }
-
-    private void CreatePortalColorSequence()
-    {
-        // shuffle the colors list to get a random order
-        colors = colors.OrderBy(_ => rng.Next()).ToList();
-
-        for (int i = 0; i < colorSequence.childCount; i++)
-        {
-            colorSequence.GetChild(i).GetComponent<SpriteRenderer>().color = colors[i];
-        }
-    }
-
     public void ColorSelected([SerializeField] SpriteRenderer targetCenter)
     {
         if (!isActive && !portalOn)
@@ -88,7 +70,7 @@ public class TutorialEndGameManager : MonoBehaviour
                     portalOn = true;
                     currentTaskController.StopTaskTimer();
 
-                    // disable trigger for bci action (with a delay for ux purpose)
+                    // disable trigger for bci action with a delay for ux purpose
                     StartCoroutine(docManager.DisableBciTaskTrigger(DocConstants.BciActivator02Tag));
                 }
             }
@@ -103,6 +85,24 @@ public class TutorialEndGameManager : MonoBehaviour
     public void ColorDeselected()
     {
         isActive = false;
+    }
+
+    private void ActivatePortal()
+    {
+        // change the sprite of the portal with the activated one
+        Debug.Log("Portal activated");
+        portalSpriteRenderer.sprite = portalOnSprite;
+    }
+
+    private void CreatePortalColorSequence()
+    {
+        // shuffle the colors list to get a random order
+        colors = colors.OrderBy(_ => rng.Next()).ToList();
+
+        for (int i = 0; i < colorSequence.childCount; i++)
+        {
+            colorSequence.GetChild(i).GetComponent<SpriteRenderer>().color = colors[i];
+        }
     }
 
 }
