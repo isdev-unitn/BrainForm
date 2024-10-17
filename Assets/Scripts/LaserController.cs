@@ -31,7 +31,6 @@ public class LaserController : MonoBehaviour
             targetHit = false;
             laserSound.Play();
             gameObject.SetActive(true);
-            //StartCoroutine(LaserTime(activationTime));
         }
     }
 
